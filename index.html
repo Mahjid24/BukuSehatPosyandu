@@ -29,7 +29,7 @@
         }
         .book-shadow {
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-            border: 4px solid #ffffff;
+            border: 1px solid #ffffff;
         }
         .page {
             opacity: 0;
@@ -48,8 +48,8 @@
             align-items: center;
             text-align: center;
             height: 100%;
-            padding: 0.75rem 0.75rem 3.5rem 0.75rem;
-            margin: 0.25rem;
+            padding: 0.5rem 0.5rem 3rem 0.5rem;
+            margin: 0.1rem;
             overflow: hidden;
             box-sizing: border-box;
         }
@@ -180,13 +180,13 @@
         .bg-accent-purple { background-color: #f5f3ff; }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen p-6"></body>
+<body class="flex items-center justify-center min-h-screen p-2"></body>
 
     <!-- Progress Bar -->
     <div id="progressBar" class="progress-bar" style="width: 3.57%;"></div>
 
     <!-- Main Book Container -->
-    <div id="book" class="w-full max-w-sm mx-auto bg-white rounded-xl book-shadow aspect-[9/16] relative overflow-hidden flex flex-col z-10"></div>
+    <div id="book" class="w-full max-w-md mx-auto bg-white rounded-lg book-shadow aspect-[9/16] relative overflow-hidden flex flex-col z-10"></div>
 
         <!-- Pages Container -->
         <div id="pagesContainer" class="flex-grow flex h-full overflow-x-auto scroll-smooth snap-x snap-mandatory">
