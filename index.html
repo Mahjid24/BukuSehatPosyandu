@@ -29,7 +29,6 @@
         }
         .book-shadow {
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-            border: 1px solid #ffffff;
         }
         .page {
             opacity: 0;
@@ -42,7 +41,7 @@
             transform: scale(1);
         }
         .page-content {
-            display: flex;
+            display:flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
@@ -52,6 +51,16 @@
             margin: 0.1rem;
             overflow: hidden;
             box-sizing: border-box;
+        }
+
+        .page-content.full-background {
+            margin: 0;
+            padding: 1rem 0.5rem 3rem 0.5rem;
+            height: 100vh;
+            width: 100vw;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
         .mobile-optimized {
             font-size: 0.85rem;
@@ -179,20 +188,20 @@
         .bg-accent-purple { background-color: #f5f3ff; }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen p-2"></body>
+<body class="flex items-center justify-center min-h-screen">
 
     <!-- Progress Bar -->
     <div id="progressBar" class="progress-bar" style="width: 3.57%;"></div>
 
     <!-- Main Book Container -->
-    <div id="book" class="w-full max-w-md mx-auto bg-white rounded-lg book-shadow aspect-[9/16] relative overflow-hidden flex flex-col z-10"></div>
+    <div id="book" class="w-full h-screen bg-white relative overflow-hidden flex flex-col z-10">
 
         <!-- Pages Container -->
         <div id="pagesContainer" class="flex-grow flex h-full overflow-x-auto scroll-smooth snap-x snap-mandatory">
 
             <!-- Halaman 1: Sampul Depan -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content primary-gradient text-white relative overflow-hidden">
+                <div class="page-content primary-gradient full-background text-white relative overflow-hidden">
                     <!-- Decorative Background Elements -->
                     <div class="absolute top-0 left-0 w-24 h-24 bg-white bg-opacity-10 rounded-full -translate-x-8 -translate-y-8"></div>
                     <div class="absolute top-16 right-0 w-16 h-16 bg-white bg-opacity-5 rounded-full translate-x-6"></div>
@@ -227,19 +236,19 @@
                         
                         <!-- Visual Feature Grid -->
                         <div class="grid grid-cols-2 gap-3 mb-4">
-                            <div class="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                            <div class="bg-white bg-opacity-20 rounded-lg px-3 py-2">
                                 <div class="text-2xl mb-1">👨‍👩‍👧‍👦</div>
                                 <p class="text-xs font-semibold">Kesehatan Keluarga</p>
                             </div>
-                            <div class="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                            <div class="bg-white bg-opacity-20 rounded-lg px-3 py-2">
                                 <div class="text-2xl mb-1">🥗</div>
                                 <p class="text-xs font-semibold">Gizi Seimbang</p>
                             </div>
-                            <div class="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                            <div class="bg-white bg-opacity-20 rounded-lg px-3 py-2">
                                 <div class="text-2xl mb-1">🛡️</div>
                                 <p class="text-xs font-semibold">Keamanan Pangan</p>
                             </div>
-                            <div class="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                            <div class="bg-white bg-opacity-20 rounded-lg px-3 py-2">
                                 <div class="text-2xl mb-1">👩‍🍳</div>
                                 <p class="text-xs font-semibold">Resep Bergizi</p>
                             </div>
@@ -298,7 +307,7 @@
 
             <!-- BAB 1: KESEHATAN KELUARGA -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content primary-gradient relative overflow-hidden">
+                <div class="page-content primary-gradient full-background relative overflow-hidden">
                     <!-- Decorative Background Pattern -->
                     <div class="absolute inset-0 opacity-10">
                         <div class="absolute top-0 left-0 w-32 h-32 bg-white rounded-full -translate-x-12 -translate-y-12"></div>
@@ -526,7 +535,7 @@
 
             <!-- BAB 2: GIZI SEIMBANG DAN AMAN -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content success-gradient relative overflow-hidden">
+                <div class="page-content success-gradient full-background relative overflow-hidden">
                     <!-- Food Pattern Background -->
                     <div class="absolute inset-0 opacity-10">
                         <div class="absolute top-0 left-0 text-6xl transform -rotate-12 -translate-x-4 -translate-y-4">🥗</div>
@@ -813,7 +822,7 @@
 
             <!-- BAB 3: KEAMANAN PANGAN -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content warning-gradient relative overflow-hidden">
+                <div class="page-content warning-gradient full-background relative overflow-hidden">
                     <!-- Safety Pattern Background -->
                     <div class="absolute inset-0 opacity-10">
                         <div class="absolute top-0 left-0 text-6xl transform rotate-12 -translate-x-4 -translate-y-4">🛡️</div>
@@ -954,7 +963,7 @@
 
             <!-- BAB 4: RESEP PRAKTIS DAN BERGIZI -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content secondary-gradient relative overflow-hidden">
+                <div class="page-content secondary-gradient full-background relative overflow-hidden">
                     <!-- Cooking Pattern Background -->
                     <div class="absolute inset-0 opacity-10">
                         <div class="absolute top-0 left-0 text-6xl transform -rotate-12 -translate-x-4 -translate-y-4">👩‍🍳</div>
@@ -1166,7 +1175,7 @@
                         <ul class="text-xs text-left text-amber-700 space-y-1">
                             <li>• Periksa tanggal kadaluarsa dan kondisi kemasan</li>
                             <li>• Hindari produk dengan kandungan gula >5g/100g</li>
-                            <li>• Pilih produk rendah natrium <600mg/100g</li>
+                            <li>• Pilih produk rendah natrium kurang dari 600mg/100g </li>
                             <li>• Cari label "tanpa pengawet buatan" jika tersedia</li>
                         </ul>
                     </div>
@@ -1263,7 +1272,7 @@
 
             <!-- Halaman Penutup -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content primary-gradient text-white relative overflow-hidden">
+                <div class="page-content primary-gradient full-background text-white relative overflow-hidden">
                     <!-- Celebration Pattern Background -->
                     <div class="absolute inset-0 opacity-10">
                         <div class="absolute top-0 left-0 text-6xl transform rotate-12 -translate-x-4 -translate-y-4">💝</div>
@@ -1317,6 +1326,7 @@
                         <!-- Logo Section at Bottom -->
                         <div class="flex justify-center gap-4 mt-6">
                             <div class="logo-placeholder shadow-2xl">
+                     
                                 <span class="text-xs">KKN</span>
                             </div>
                             <div class="logo-placeholder shadow-2xl">
@@ -1335,6 +1345,7 @@
         <div class="absolute top-4 right-4 bg-white bg-opacity-90 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-semibold shadow-sm">
             <span id="currentPageNum">1</span>/<span id="totalPages">28</span>
         </div>
+
     </div>
 
     <script src="script.js"></script>
