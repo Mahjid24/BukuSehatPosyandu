@@ -13,6 +13,7 @@
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             min-height: 100vh;
+            overflow: hidden;
         }
         h1, h2, h3 {
             font-family: 'Poppins', sans-serif;
@@ -23,6 +24,7 @@
         .pages-container {
             -ms-overflow-style: none;
             scrollbar-width: none;
+            overflow-y: hidden;
         }
         .book-shadow {
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.9);
@@ -32,6 +34,7 @@
             opacity: 0;
             transform: scale(0.98);
             transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            overflow: hidden;
         }
         .page.is-visible {
             opacity: 1;
@@ -40,11 +43,21 @@
         .page-content {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             text-align: center;
             height: 100%;
-            padding: 2rem 1.5rem;
+            padding: 1rem 1rem 4rem 1rem;
+            margin: 0.5rem;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        .page-content::-webkit-scrollbar {
+            display: none;
+        }
+        .page-content {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
         .dot {
             transition: all 0.3s ease;
@@ -74,9 +87,9 @@
         }
         .card-style {
             background: white;
-            border-radius: 12px;
-            padding: 1rem;
-            margin: 0.5rem 0;
+            border-radius: 8px;
+            padding: 0.5rem;
+            margin: 0.25rem 0;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             border: 1px solid #f1f5f9;
         }
@@ -91,15 +104,15 @@
         .tip-box {
             background: linear-gradient(135deg, #fef3c7, #fde68a);
             border: 1px solid #f59e0b;
-            border-radius: 12px;
-            padding: 1rem;
-            margin: 1rem 0;
+            border-radius: 8px;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
         }
         .logo-placeholder {
-            width: 60px;
-            height: 60px;
+            width: 40px;
+            height: 40px;
             background: linear-gradient(135deg, #3b82f6, #10b981);
-            border-radius: 12px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -110,13 +123,13 @@
         }
         .narrative-text {
             text-align: justify;
-            line-height: 1.6;
+            line-height: 1.4;
         }
         .professional-card {
             background: white;
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin: 0.75rem 0;
+            border-radius: 12px;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             border: 1px solid #e2e8f0;
         }
@@ -148,7 +161,7 @@
             <div class="page w-full h-full flex-shrink-0 snap-center">
                 <div class="page-content primary-gradient text-white">
                     <!-- Logo Section -->
-                    <div class="flex justify-between w-full mb-6">
+                    <div class="flex justify-between w-full mb-4">
                         <div class="logo-placeholder">
                             <span class="text-xs">KKN</span>
                         </div>
@@ -157,9 +170,9 @@
                         </div>
                     </div>
 
-                    <div class="text-6xl mb-6">📚</div>
-                    <h1 class="text-4xl font-bold mb-3">Buku Sehat</h1>
-                    <h1 class="text-3xl font-bold mb-6">Posyandu Digital</h1>
+                    <div class="text-4xl mb-4">📚</div>
+                    <h1 class="text-3xl font-bold mb-2">Buku Sehat</h1>
+                    <h1 class="text-2xl font-bold mb-4">Posyandu Digital</h1>
                     <div class="professional-card bg-white bg-opacity-10 backdrop-blur-sm">
                         <p class="text-lg font-semibold mb-3">Panduan Lengkap untuk Ibu Indonesia</p>
                         <div class="text-sm space-y-2">
@@ -178,8 +191,8 @@
             <!-- Halaman 2: Kata Pengantar -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
                 <div class="page-content">
-                    <div class="text-5xl mb-4">🤗</div>
-                    <h2 class="text-3xl font-bold accent-blue mb-4">Selamat Datang, Ibu Hebat!</h2>
+                    <div class="text-3xl mb-3">🤗</div>
+                    <h2 class="text-2xl font-bold accent-blue mb-3">Selamat Datang, Ibu Hebat!</h2>
                     <div class="professional-card narrative-text">
                         <p class="text-gray-700 leading-relaxed mb-3">Sebagai seorang ibu, Anda memiliki peran yang sangat mulia dalam menjaga kesehatan keluarga. Buku panduan ini hadir sebagai sahabat setia dalam perjalanan Anda memberikan nutrisi terbaik untuk keluarga tercinta.</p>
                         <p class="text-gray-700 leading-relaxed">Dengan panduan yang mudah dipahami dan praktis, kami berharap setiap keluarga Indonesia dapat menikmati hidup yang lebih sehat dan bahagia.</p>
@@ -203,9 +216,9 @@
             <!-- BAB 1: KESEHATAN KELUARGA -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
                 <div class="page-content primary-gradient">
-                    <div class="text-6xl mb-4">👨‍👩‍👧‍👦</div>
-                    <h2 class="text-3xl font-bold text-white mb-2">BAB 1</h2>
-                    <h1 class="text-4xl font-bold text-white mb-4">Kesehatan Keluarga</h1>
+                    <div class="text-4xl mb-3">👨‍👩‍👧‍👦</div>
+                    <h2 class="text-2xl font-bold text-white mb-2">BAB 1</h2>
+                    <h1 class="text-3xl font-bold text-white mb-3">Kesehatan Keluarga</h1>
                     <div class="professional-card bg-white bg-opacity-10 backdrop-blur-sm">
                         <p class="text-white font-semibold mb-2">Panduan Gizi Sesuai Usia</p>
                         <p class="text-white text-sm opacity-90">Setiap anggota keluarga memiliki kebutuhan gizi yang berbeda sesuai dengan tahap perkembangan dan aktivitas hariannya.</p>
@@ -234,8 +247,8 @@
             <!-- Halaman 4: Gizi Balita -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
                 <div class="page-content">
-                    <div class="text-4xl mb-3">👶</div>
-                    <h3 class="text-2xl font-bold accent-blue mb-3">Gizi Balita (0-5 tahun)</h3>
+                    <div class="text-3xl mb-2">👶</div>
+                    <h3 class="text-xl font-bold accent-blue mb-2">Gizi Balita (0-5 tahun)</h3>
 
                     <div class="professional-card narrative-text mb-4">
                         <p class="text-gray-700 text-sm leading-relaxed">Periode 1000 hari pertama kehidupan (dari kehamilan hingga usia 2 tahun) adalah masa emas perkembangan otak dan fisik anak. Gizi yang optimal pada masa ini menentukan kualitas kesehatan, kecerdasan, dan produktivitas anak di masa depan.</p>
@@ -272,8 +285,8 @@
             <!-- Halaman 5: Gizi Anak Sekolah -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
                 <div class="page-content">
-                    <div class="text-4xl mb-3">🎒</div>
-                    <h3 class="text-2xl font-bold accent-blue mb-3">Gizi Anak Sekolah (6-12 tahun)</h3>
+                    <div class="text-3xl mb-2">🎒</div>
+                    <h3 class="text-xl font-bold accent-blue mb-2">Gizi Anak Sekolah (6-12 tahun)</h3>
 
                     <div class="professional-card narrative-text mb-4">
                         <p class="text-gray-700 text-sm leading-relaxed">Anak usia sekolah mengalami pertumbuhan pesat dan aktivitas fisik tinggi. Mereka membutuhkan energi yang cukup untuk mendukung aktivitas belajar, bermain, dan pertumbuhan. Kebiasaan makan yang baik pada masa ini akan terbawa hingga dewasa.</p>
@@ -412,9 +425,9 @@
             <!-- BAB 2: GIZI SEIMBANG DAN AMAN -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
                 <div class="page-content success-gradient">
-                    <div class="text-6xl mb-4">🥗</div>
-                    <h2 class="text-3xl font-bold text-white mb-2">BAB 2</h2>
-                    <h1 class="text-4xl font-bold text-white mb-4">Gizi Seimbang & Aman</h1>
+                    <div class="text-4xl mb-3">🥗</div>
+                    <h2 class="text-2xl font-bold text-white mb-2">BAB 2</h2>
+                    <h1 class="text-3xl font-bold text-white mb-3">Gizi Seimbang & Aman</h1>
                     <div class="professional-card bg-white bg-opacity-10 backdrop-blur-sm">
                         <p class="text-white font-semibold mb-2">Fondasi Kesehatan Keluarga</p>
                         <p class="text-white text-sm opacity-90">Gizi seimbang adalah kunci utama dalam membangun keluarga yang sehat, cerdas, dan produktif.</p>
@@ -680,9 +693,9 @@
             <!-- BAB 3: KEAMANAN PANGAN -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
                 <div class="page-content warning-gradient">
-                    <div class="text-6xl mb-4">🛡️</div>
-                    <h2 class="text-3xl font-bold text-white mb-2">BAB 3</h2>
-                    <h1 class="text-4xl font-bold text-white mb-4">Keamanan Pangan</h1>
+                    <div class="text-4xl mb-3">🛡️</div>
+                    <h2 class="text-2xl font-bold text-white mb-2">BAB 3</h2>
+                    <h1 class="text-3xl font-bold text-white mb-3">Keamanan Pangan</h1>
                     <div class="professional-card bg-white bg-opacity-10 backdrop-blur-sm">
                         <p class="text-white font-semibold mb-2">5 Kunci Emas Keamanan Pangan</p>
                         <p class="text-white text-sm opacity-90">Melindungi keluarga dari kontaminasi bakteri, virus, dan zat berbahaya melalui praktik penanganan makanan yang benar.</p>
@@ -801,9 +814,9 @@
             <!-- BAB 4: RESEP PRAKTIS DAN BERGIZI -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
                 <div class="page-content secondary-gradient">
-                    <div class="text-6xl mb-4">👩‍🍳</div>
-                    <h2 class="text-3xl font-bold text-white mb-2">BAB 4</h2>
-                    <h1 class="text-4xl font-bold text-white mb-4">Resep Praktis & Bergizi</h1>
+                    <div class="text-4xl mb-3">👩‍🍳</div>
+                    <h2 class="text-2xl font-bold text-white mb-2">BAB 4</h2>
+                    <h1 class="text-3xl font-bold text-white mb-3">Resep Praktis & Bergizi</h1>
                     <div class="professional-card bg-white bg-opacity-10 backdrop-blur-sm">
                         <p class="text-white font-semibold mb-2">Kreasi Masakan Bergizi</p>
                         <p class="text-white text-sm opacity-90">Kumpulan resep praktis, ekonomis, dan bergizi tinggi yang telah disesuaikan dengan selera keluarga Indonesia.</p>
@@ -1090,8 +1103,8 @@
             <!-- Halaman Penutup -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
                 <div class="page-content primary-gradient text-white">
-                    <div class="text-6xl mb-4">💝</div>
-                    <h2 class="text-3xl font-bold mb-4">Terima Kasih, Ibu Hebat!</h2>
+                    <div class="text-4xl mb-3">💝</div>
+                    <h2 class="text-2xl font-bold mb-3">Terima Kasih, Ibu Hebat!</h2>
 
                     <div class="professional-card bg-white bg-opacity-10 backdrop-blur-sm mb-4 narrative-text">
                         <p class="text-white leading-relaxed">Perjalanan menyajikan makanan sehat untuk keluarga adalah wujud kasih sayang yang tak ternilai. Setiap langkah kecil yang Ibu lakukan hari ini adalah investasi besar untuk masa depan generasi yang lebih sehat, cerdas, dan bahagia.</p>
