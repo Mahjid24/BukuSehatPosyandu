@@ -1,8 +1,6 @@
 
 const pagesContainer = document.getElementById('pagesContainer');
 const navDotsContainer = document.getElementById('navDots');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
 const progressBar = document.getElementById('progressBar');
 const currentPageNum = document.getElementById('currentPageNum');
 const totalPages = document.getElementById('totalPages');
@@ -17,7 +15,7 @@ totalPages.textContent = numPages;
 // Create navigation dots
 for (let i = 0; i < numPages; i++) {
     const dot = document.createElement('div');
-    dot.classList.add('dot', 'w-2', 'h-2', 'bg-gray-300', 'rounded-full', 'cursor-pointer');
+    dot.classList.add('dot', 'w-2', 'h-2', 'bg-gray-400', 'rounded-full', 'cursor-pointer');
     dot.addEventListener('click', () => goToPage(i));
     navDotsContainer.appendChild(dot);
 }
@@ -30,10 +28,6 @@ function updateNavControls(pageNumber) {
     dots.forEach((dot, index) => {
         dot.classList.toggle('active', index === currentPage);
     });
-
-    // Update buttons
-    prevBtn.disabled = currentPage === 0;
-    nextBtn.disabled = currentPage === numPages - 1;
 
     // Update progress bar
     const progressPercentage = ((currentPage + 1) / numPages) * 100;
@@ -52,10 +46,6 @@ function goToPage(pageNumber) {
         behavior: 'smooth'
     });
 }
-
-// Event Listeners
-prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
-nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
 
 // Touch/swipe support for mobile
 let startX = 0;
@@ -204,7 +194,6 @@ const lazyLoadObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const page = entry.target;
-            // Add any lazy loading logic here if needed
             page.classList.add('loaded');
         }
     });
@@ -216,26 +205,12 @@ pages.forEach(page => {
     lazyLoadObserver.observe(page);
 });
 
-// Auto-hide navigation on mobile when scrolling
-let navTimeout;
-function showNavigation() {
-    document.body.classList.remove('hide-nav');
-    clearTimeout(navTimeout);
-    navTimeout = setTimeout(() => {
-        if (window.innerWidth <= 768) {
-            document.body.classList.add('hide-nav');
-        }
-    }, 3000);
-}
-
-// Show navigation on user interaction
-['touchstart', 'mousedown', 'keydown'].forEach(event => {
-    document.addEventListener(event, showNavigation);
-});
-
 // Accessibility improvements
-prevBtn.setAttribute('aria-label', 'Halaman sebelumnya');
-nextBtn.setAttribute('aria-label', 'Halaman berikutnya');
+dots.forEach((dot, index) => {
+    dot.setAttribute('aria-label', `Pergi ke halaman ${index + 1}`);
+    dot.setAttribute('role', 'button');
+    dot.setAttribute('tabindex', index === currentPage ? '0' : '-1');
+});
 
 // Update ARIA labels
 function updateAriaLabels() {
