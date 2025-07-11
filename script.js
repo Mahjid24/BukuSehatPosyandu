@@ -17,7 +17,7 @@ const dots = [];
 
 function updateNavControls(pageNumber) {
     currentPage = pageNumber;
-    
+
     // Update progress bar
     const progressPercentage = ((currentPage + 1) / numPages) * 100;
     progressBar.style.width = progressPercentage + '%';
@@ -28,7 +28,7 @@ function updateNavControls(pageNumber) {
 
 function goToPage(pageNumber) {
     if (pageNumber < 0 || pageNumber >= numPages) return;
-    
+
     // Smooth scroll to target page
     pagesContainer.scrollTo({
         left: pageNumber * pagesContainer.clientWidth,
@@ -49,12 +49,12 @@ pagesContainer.addEventListener('touchstart', (e) => {
 
 pagesContainer.addEventListener('touchmove', (e) => {
     if (!isDragging) return;
-    
+
     const currentX = e.touches[0].clientX;
     const currentY = e.touches[0].clientY;
     const diffX = Math.abs(startX - currentX);
     const diffY = Math.abs(startY - currentY);
-    
+
     // If horizontal swipe is more dominant than vertical, prevent scroll
     if (diffX > diffY && diffX > 10) {
         e.preventDefault();
@@ -64,12 +64,12 @@ pagesContainer.addEventListener('touchmove', (e) => {
 pagesContainer.addEventListener('touchend', (e) => {
     if (!isDragging) return;
     isDragging = false;
-    
+
     const endX = e.changedTouches[0].clientX;
     const endY = e.changedTouches[0].clientY;
     const diffX = startX - endX;
     const diffY = Math.abs(startY - endY);
-    
+
     // Only trigger page change if horizontal swipe is dominant and sufficient
     if (Math.abs(diffX) > 50 && Math.abs(diffX) > diffY) {
         if (diffX > 0) {
@@ -99,10 +99,10 @@ pagesContainer.addEventListener('mouseup', (e) => {
     if (!isMouseDragging) return;
     isMouseDragging = false;
     pagesContainer.style.cursor = 'grab';
-    
+
     const endX = e.clientX;
     const diffX = mouseStartX - endX;
-    
+
     if (Math.abs(diffX) > 50) {
         if (diffX > 0) {
             goToPage(currentPage + 1);
