@@ -1,16 +1,390 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buku Sehat Posyandu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFF9F0; /* Warm off-white background */
+        }
+        h1, h2, h3 {
+            font-family: 'Fredoka', sans-serif; /* Fun, rounded font for headers */
+        }
+        .pages-container::-webkit-scrollbar {
+            display: none;
+        }
+        .pages-container {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .book-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        .page {
+            /* Styles for page transition effect */
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        .page.is-visible {
+            /* Active page style */
+            opacity: 1;
+            transform: scale(1);
+        }
+        .page-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+            padding: 1.5rem;
+        }
+        .dot {
+            transition: all 0.3s ease;
+        }
+        .dot.active {
+            background-color: #F97316; /* Orange-500 */
+            transform: scale(1.25);
+        }
+        .nav-button {
+            position: absolute;
+            bottom: 2.5rem;
+            width: 44px;
+            height: 44px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+        .nav-button:hover {
+            transform: scale(1.1);
+        }
+        .nav-button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        #prevBtn {
+            left: 1rem;
+        }
+        #nextBtn {
+            right: 1rem;
+        }
+    </style>
 </head>
+<body class="flex items-center justify-center min-h-screen p-4">
 
-<body>
-  Hello world
-  <script src="script.js"></script>
+    <!-- Main Book Container -->
+    <div id="book" class="w-full max-w-sm mx-auto bg-white rounded-2xl book-shadow aspect-[9/16] relative overflow-hidden flex flex-col">
+
+        <!-- Pages Container -->
+        <div id="pagesContainer" class="flex-grow flex h-full overflow-x-auto scroll-smooth snap-x snap-mandatory">
+
+            <!-- Halaman 1: Sampul Depan -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content bg-orange-400 text-white">
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="150" height="150"><rect width="100" height="100" rx="50" fill="white"/><path d="M50,20 a15,15 0 0,1 0,30 a15,15 0 0,1 0,-30" fill="%23F97316"/><path d="M30,60 q20,20 40,0" stroke="%23F97316" stroke-width="5" fill="none" stroke-linecap="round"/><text x="50" y="85" font-size="12" fill="%23F97316" text-anchor="middle" font-family="Fredoka">Buku Sehat</text></svg>' alt="Ilustrasi sampul buku sehat" class="border-4 border-white rounded-full mb-6 shadow-lg">
+                    <h1 class="text-4xl font-bold">Buku Sehat Posyandu</h1>
+                    <p class="mt-2 text-lg font-medium">Panduan Gizi & Pangan Aman</p>
+                    <p class="text-sm mt-12 animate-pulse">Geser atau tekan panah</p>
+                </div>
+            </div>
+
+            <!-- Halaman 2: Pengantar -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content">
+                    <h2 class="text-3xl font-bold text-orange-500 mb-4">Selamat Datang!</h2>
+                    <p class="text-gray-700">Buku ini sahabat Ibu dalam menyajikan makanan sehat & aman untuk keluarga. Yuk, kita jaga kesehatan dari dapur!</p>
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg>' alt="Ilustrasi keluarga bahagia" class="mt-6 h-32 text-orange-500">
+                </div>
+            </div>
+
+            <!-- BAB 1: POLA MAKAN SEHAT -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content bg-green-100">
+                    <h2 class="text-3xl font-bold text-green-600">Bab 1</h2>
+                    <p class="text-5xl font-bold text-green-700 mt-4">Pola Makan Sehat</p>
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2316A34A" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15H9v-2h2v2zm0-4H9V7h2v6zm4 4h-2v-2h2v2zm0-4h-2V7h2v6z"></path><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>' class="h-24 mt-6" alt="Ilustrasi makanan sehat">
+                    <p class="mt-4 text-gray-600">Fondasi kesehatan keluarga melalui gizi seimbang.</p>
+                </div>
+            </div>
+
+            <!-- Halaman 4: Isi Piringku -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content">
+                    <h3 class="text-2xl font-bold text-green-600 mb-2">Isi Piringku</h3>
+                    <p class="text-sm text-gray-600 mb-4">Panduan sekali makan yang seimbang:</p>
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2316A34A" stroke-width="1.5"><path d="M22 12c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2"/><path d="M12 2v20"/><path d="M2 12h20"/><path d="M18.36 18.36L12 12"/></svg>' alt="Ilustrasi piring gizi seimbang" class="h-40 mb-4">
+                    <ul class="text-left text-sm text-gray-700 list-disc pl-5">
+                        <li><strong>Makanan Pokok:</strong> 1/3 Piring</li>
+                        <li><strong>Sayuran:</strong> 1/3 Piring</li>
+                        <li><strong>Lauk Pauk:</strong> 1/6 Piring</li>
+                        <li><strong>Buah-buahan:</strong> 1/6 Piring</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Halaman 5: Pentingnya Sarapan -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content">
+                    <h3 class="text-2xl font-bold text-green-600 mb-2">Jangan Lupa Sarapan!</h3>
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2316A34A" stroke-width="1.5"><path d="M8 3h8v2H8z"/><path d="M19 8H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2z"/><path d="M6 14h12"/></svg>' alt="Ilustrasi sarapan sehat" class="h-32 mb-4">
+                    <p class="text-gray-700">Sarapan memberi energi untuk memulai hari, meningkatkan konsentrasi, dan menjaga berat badan ideal.</p>
+                </div>
+            </div>
+
+            <!-- Halaman 6: Air Minum Cukup -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content">
+                    <h3 class="text-2xl font-bold text-green-600 mb-2">Hidrasi Itu Kunci</h3>
+                     <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2316A34A" stroke-width="1.5"><path d="M12 2L3 8v11c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8l-9-6z"/><path d="M12 22.5c-3.31 0-6-2.69-6-6 0-2.08 1.07-3.92 2.71-5H15.29c1.64 1.08 2.71 2.92 2.71 5 0 3.31-2.69 6-6 6z"/></svg>' alt="Ilustrasi segelas air" class="h-32 mb-4">
+                    <p class="text-gray-700">Minumlah air putih cukup, sekitar 8 gelas sehari. Air penting untuk semua fungsi tubuh kita.</p>
+                </div>
+            </div>
+
+            <!-- Halaman 7: Batasi Gula, Garam, Lemak -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content">
+                    <h3 class="text-2xl font-bold text-red-500 mb-2">Batasi GGL</h3>
+                    <p class="text-gray-700 mb-4">(Gula, Garam, dan Lemak)</p>
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23EF4444" stroke-width="1.5"><path d="M12 22V12M12 12L6 6M12 12l6-6M6 18h12"/></svg>' class="h-24 mb-4" alt="Ilustrasi Garam dan Gula">
+                    <ul class="text-left text-sm text-gray-700 space-y-2">
+                        <li><strong>Gula:</strong> Maks. 4 sendok makan/hari</li>
+                        <li><strong>Garam:</strong> Maks. 1 sendok teh/hari</li>
+                        <li><strong>Lemak:</strong> Maks. 5 sendok makan/hari</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Halaman 8: Camilan Sehat -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content">
+                    <h3 class="text-2xl font-bold text-green-600 mb-2">Pilih Camilan Sehat</h3>
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2316A34A" stroke-width="1.5"><path d="M12 2C9.24 2 7 4.24 7 7s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 10c-3.87 0-7 3.13-7 7h14c0-3.87-3.13-7-7-7z"/></svg>' alt="Ilustrasi buah apel" class="h-32 mb-4">
+                    <p class="text-gray-700">Ganti camilan kemasan dengan buah potong, yogurt, atau kacang rebus yang lebih menyehatkan.</p>
+                </div>
+            </div>
+
+            <!-- BAB 2: KEAMANAN PANGAN -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content bg-amber-100">
+                    <h2 class="text-3xl font-bold text-amber-600">Bab 2</h2>
+                    <p class="text-5xl font-bold text-amber-700 mt-4">Keamanan Pangan</p>
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23D97706" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>' class="h-24 mt-6" alt="Ilustrasi perisai aman">
+                    <p class="mt-4 text-gray-600">Menjaga makanan tetap aman dari kuman berbahaya.</p>
+                </div>
+            </div>
+
+            <!-- Halaman 10: Kunci 1 - Jaga Kebersihan -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content">
+                    <h3 class="text-2xl font-bold text-amber-600 mb-2">1. Jaga Kebersihan</h3>
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23D97706" stroke-width="1.5"><path d="M16 13V6c0-2.2-1.8-4-4-4S8 3.8 8 6v7"/><path d="M16 13h2.3c.9 0 1.7.7 1.7 1.6 0 1.8-1.4 3.2-3.2 3.2-1.8 0-3.2-1.4-3.2-3.2 0-.9.7-1.6 1.6-1.6H16zM8 13H5.7c-.9 0-1.7.7-1.7 1.6 0 1.8 1.4 3.2 3.2 3.2s3.2-1.4 3.2-3.2c0-.9-.7-1.6-1.6-1.6H8z"/></svg>' alt="Ilustrasi cuci tangan" class="h-32 mb-4">
+                    <p class="text-gray-700">Cuci tangan sebelum & sesudah mengolah makanan. Bersihkan peralatan masak dengan sabun dan air bersih.</p>
+                </div>
+            </div>
+
+            <!-- Halaman 11: Kunci 2 - Pisahkan Mentah & Matang -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content">
+                    <h3 class="text-2xl font-bold text-amber-600 mb-2">2. Pisahkan</h3>
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23D97706" stroke-width="1.5"><path d="M3 12h18M3 6h18M3 18h18"/><path d="M21 12l-4 4m0-8l4 4"/></svg>' alt="Ilustrasi talenan dan pisau" class="h-32 mb-4">
+                    <p class="text-gray-700">Pisahkan bahan mentah (daging, ikan) dari makanan matang. Gunakan talenan & pisau yang berbeda.</p>
+                </div>
+            </div>
+
+            <!-- Halaman 12: Kunci 3 - Masak Sampai Matang -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content">
+                    <h3 class="text-2xl font-bold text-amber-600 mb-2">3. Masak Matang</h3>
+                     <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23D97706" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M16.24 7.76C15.07 6.59 13.53 6 12 6s-3.07.59-4.24 1.76"/><path d="M12 12v-2m0 6v-2"/></svg>' alt="Ilustrasi panci masak" class="h-32 mb-4">
+                    <p class="text-gray-700">Masak makanan hingga matang sempurna, terutama daging, telur, dan makanan laut untuk membunuh kuman.</p>
+                </div>
+            </div>
+
+            <!-- Halaman 13: Kunci 4 - Simpan di Suhu Aman -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content">
+                    <h3 class="text-2xl font-bold text-amber-600 mb-2">4. Suhu Aman</h3>
+                     <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23D97706" stroke-width="1.5"><path d="M5 4h14v18H5z"/><path d="M9 4V2h6v2"/><path d="M9 10h6"/></svg>' alt="Ilustrasi kulkas" class="h-32 mb-4">
+                    <p class="text-gray-700">Jangan biarkan makanan matang di suhu ruang > 2 jam. Segera simpan di kulkas.</p>
+                </div>
+            </div>
+
+            <!-- Halaman 14: Kunci 5 - Air & Bahan Baku Aman -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content">
+                    <h3 class="text-2xl font-bold text-amber-600 mb-2">5. Bahan Baku Aman</h3>
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23D97706" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>' alt="Ilustrasi sayuran segar" class="h-32 mb-4">
+                    <p class="text-gray-700">Gunakan air bersih dan pilih bahan makanan segar. Cuci buah dan sayuran dengan air mengalir.</p>
+                </div>
+            </div>
+
+            <!-- BAB 3: TIPS & RESEP -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content bg-sky-100">
+                    <h2 class="text-3xl font-bold text-sky-600">Bab 3</h2>
+                    <p class="text-5xl font-bold text-sky-700 mt-4">Tips & Resep</p>
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%230284C7" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20v2H6.5A2.5 2.5 0 0 1 4 19.5zM4 4h16v12H4z"/><path d="M8 8h8m-8 4h4"/></svg>' class="h-24 mt-6" alt="Ilustrasi buku resep">
+                    <p class="mt-4 text-gray-600">Ide praktis dan resep lezat untuk dicoba di rumah.</p>
+                </div>
+            </div>
+
+            <!-- Halaman 16: Tips Belanja Cerdas -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content">
+                    <h3 class="text-2xl font-bold text-sky-600 mb-2">Tips Belanja Cerdas</h3>
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%230284C7" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>' alt="Ilustrasi daftar belanja" class="h-32 mb-4">
+                    <ul class="text-left text-sm text-gray-700 list-disc pl-5">
+                        <li>Buat daftar belanja</li>
+                        <li>Baca label informasi gizi</li>
+                        <li>Pilih produk segar</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Halaman 17: Resep 1 - Sayur Bening Bayam -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content">
+                    <h3 class="text-2xl font-bold text-sky-600 mb-2">Resep: Sayur Bening</h3>
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2316A34A"><path d="M20.5,11a.5.5,0,0,0-.5.5,7.5,7.5,0,0,1-15,0,.5.5,0,0,0-1,0,8.5,8.5,0,0,0,17,0,.5.5,0,0,0-.5-.5Z"/><path d="M12,21a.5.5,0,0,0,.5-.5V11.19a.5.5,0,1,0-1,0V20.5A.5.5,0,0,0,12,21Z"/></svg>' class="h-24 mb-3" alt="Ilustrasi bayam">
+                    <p class="text-xs text-gray-500 mb-2">Cepat & kaya zat besi.</p>
+                    <p class="text-sm text-gray-700">Rebus air, masukkan irisan bawang & temu kunci. Tambah jagung, lalu bayam. Beri garam & gula. Masak sebentar & angkat.</p>
+                </div>
+            </div>
+
+            <!-- Halaman 18: Resep 2 - Bola Tahu Sayur -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content">
+                    <h3 class="text-2xl font-bold text-sky-600 mb-2">Resep: Bola Tahu</h3>
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FBBF24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>' class="h-24 mb-3" alt="Ilustrasi tahu">
+                    <p class="text-xs text-gray-500 mb-2">Disukai anak-anak.</p>
+                    <p class="text-sm text-gray-700">Campur tahu, wortel parut, daun bawang & telur. Bentuk bola. Goreng atau kukus hingga matang.</p>
+                </div>
+            </div>
+
+            <!-- Halaman 19: Resep 3 - Jus Tiga Warna -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content">
+                    <h3 class="text-2xl font-bold text-sky-600 mb-2">Resep: Jus Sehat</h3>
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23EC4899" stroke-width="1.5"><path d="M12 2v4M5 10h14l-1.7 10H6.7L5 10z"/><path d="M8 5h8v5H8z"/></svg>' class="h-24 mb-3" alt="Ilustrasi jus sehat">
+                    <p class="text-xs text-gray-500 mb-2">Penuh vitamin.</p>
+                    <p class="text-sm text-gray-700">Blender wortel, tomat, dan sawi hijau dengan sedikit air. Sajikan segera tanpa tambahan gula.</p>
+                </div>
+            </div>
+
+            <!-- Halaman 20: Resep 4 - Pepes Tahu Jamur -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content">
+                    <h3 class="text-2xl font-bold text-sky-600 mb-2">Resep: Pepes Tahu</h3>
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23A16207" stroke-width="1.5"><path d="M12 2a10 10 0 0 0-10 10c0 5.52 4.48 10 10 10s10-4.48 10-10A10 10 0 0 0 12 2z"/><path d="M12 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>' class="h-24 mb-3" alt="Ilustrasi jamur">
+                    <p class="text-xs text-gray-500 mb-2">Rendah lemak & kaya rasa.</p>
+                    <p class="text-sm text-gray-700">Campur tahu, jamur, bumbu halus & kemangi. Bungkus daun pisang, lalu kukus 20-30 menit.</p>
+                </div>
+            </div>
+
+            <!-- Halaman 21: Penutup -->
+            <div class="page w-full h-full flex-shrink-0 snap-center">
+                <div class="page-content">
+                    <h2 class="text-3xl font-bold text-orange-500 mb-4">Terima Kasih!</h2>
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23F87171"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>' alt="Ilustrasi hati" class="mt-6 h-32">
+                    <p class="text-gray-700 mt-6">Semoga buku ini bermanfaat. Kesehatan keluarga dimulai dari pilihan cerdas di dapur Ibu!</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button id="prevBtn" class="nav-button">
+            <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <button id="nextBtn" class="nav-button">
+            <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+
+        <!-- Navigation Dots -->
+        <div id="navDots" class="absolute bottom-5 left-0 right-0 flex justify-center items-center gap-2">
+            <!-- Dots will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const pagesContainer = document.getElementById('pagesContainer');
+        const navDotsContainer = document.getElementById('navDots');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        const pages = document.querySelectorAll('.page');
+        const numPages = pages.length;
+        let currentPage = 0;
+
+        // Create navigation dots
+        for (let i = 0; i < numPages; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot', 'w-2.5', 'h-2.5', 'bg-gray-300', 'rounded-full', 'cursor-pointer');
+            dot.addEventListener('click', () => goToPage(i));
+            navDotsContainer.appendChild(dot);
+        }
+        const dots = navDotsContainer.querySelectorAll('.dot');
+
+        function updateNavControls(pageNumber) {
+            currentPage = pageNumber;
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentPage);
+            });
+
+            // Update buttons
+            prevBtn.disabled = currentPage === 0;
+            nextBtn.disabled = currentPage === numPages - 1;
+        }
+
+        function goToPage(pageNumber) {
+            if (pageNumber < 0 || pageNumber >= numPages) return;
+            pagesContainer.scrollTo({
+                left: pageNumber * pagesContainer.clientWidth,
+                behavior: 'smooth'
+            });
+            // The observer will handle updating controls
+        }
+
+        // Event Listeners
+        prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
+        nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
+
+        // Intersection Observer for page transitions
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const pageElement = entry.target;
+                if (entry.isIntersecting) {
+                    pageElement.classList.add('is-visible');
+                    // Find the index of the visible page and update controls
+                    const pageIndex = Array.from(pages).indexOf(pageElement);
+                    updateNavControls(pageIndex);
+                } else {
+                    pageElement.classList.remove('is-visible');
+                }
+            });
+        }, {
+            root: pagesContainer,
+            threshold: 0.5 // Trigger when 50% of the page is visible
+        });
+
+        pages.forEach(page => {
+            observer.observe(page);
+        });
+
+    </script>
 </body>
-
 </html>
