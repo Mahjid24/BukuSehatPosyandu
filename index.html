@@ -11,6 +11,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            background: #f8fafc;
             min-height: 100vh;
             overflow: hidden;
             position: relative;
@@ -56,35 +57,35 @@
             font-size: 0.85rem;
             line-height: 1.3;
         }
-
+        
         .text-xs {
             font-size: 0.7rem !important;
         }
-
+        
         .text-sm {
             font-size: 0.8rem !important;
         }
-
+        
         .text-lg {
             font-size: 1rem !important;
         }
-
+        
         .text-xl {
             font-size: 1.1rem !important;
         }
-
+        
         .text-2xl {
             font-size: 1.3rem !important;
         }
-
+        
         .text-3xl {
             font-size: 1.5rem !important;
         }
-
+        
         .text-4xl {
             font-size: 2rem !important;
         }
-
+        
         .text-5xl {
             font-size: 2.25rem !important;
         }
@@ -177,28 +178,15 @@
         .bg-accent-orange { background-color: #fffbeb; }
         .bg-accent-red { background-color: #fef2f2; }
         .bg-accent-purple { background-color: #f5f3ff; }
-
-        /* Texture styles */
-        .content-texture {
-            background-image: url('https://i.imgur.com/NL9Tj0q.png'); /* Replace with your texture image URL */
-            background-size: 200px;
-            opacity: 0.8;
-        }
-
-        .paper-texture {
-            background-image: url('https://i.imgur.com/nkKmJkJ.png'); /* Replace with your paper texture image URL */
-            background-size: cover;
-            opacity: 0.7;
-        }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen p-2">
+<body class="flex items-center justify-center min-h-screen p-2"></body>
 
     <!-- Progress Bar -->
     <div id="progressBar" class="progress-bar" style="width: 3.57%;"></div>
 
     <!-- Main Book Container -->
-    <div id="book" class="w-full max-w-md mx-auto bg-white rounded-lg book-shadow aspect-[9/16] relative overflow-hidden flex flex-col z-10">
+    <div id="book" class="w-full max-w-md mx-auto bg-white rounded-lg book-shadow aspect-[9/16] relative overflow-hidden flex flex-col z-10"></div>
 
         <!-- Pages Container -->
         <div id="pagesContainer" class="flex-grow flex h-full overflow-x-auto scroll-smooth snap-x snap-mandatory">
@@ -211,7 +199,7 @@
                     <div class="absolute top-16 right-0 w-16 h-16 bg-white bg-opacity-5 rounded-full translate-x-6"></div>
                     <div class="absolute bottom-0 left-1/4 w-20 h-20 bg-white bg-opacity-5 rounded-full translate-y-8"></div>
                     <div class="absolute bottom-16 right-8 w-12 h-12 bg-white bg-opacity-10 rounded-full"></div>
-
+                    
                     <!-- Logo Section -->
                     <div class="flex justify-between w-full mb-4 relative z-10">
                         <div class="logo-placeholder shadow-lg">
@@ -227,17 +215,17 @@
                         <div class="text-5xl mb-2 relative z-10">📚</div>
                         <div class="absolute inset-0 bg-white bg-opacity-20 rounded-full w-16 h-16 mx-auto animate-pulse"></div>
                     </div>
-
+                    
                     <!-- Title Section -->
                     <div class="relative z-10">
                         <h1 class="text-4xl font-bold mb-2 drop-shadow-lg">Buku Sehat</h1>
                         <h1 class="text-3xl font-bold mb-4 drop-shadow-lg">Posyandu Digital</h1>
                     </div>
-
+                    
                     <!-- Feature Cards -->
                     <div class="professional-card bg-white bg-opacity-15 backdrop-blur-sm border border-white border-opacity-20 shadow-xl relative z-10">
                         <p class="text-xl font-bold mb-4 drop-shadow-sm">Panduan Lengkap untuk Ibu Indonesia</p>
-
+                        
                         <!-- Visual Feature Grid -->
                         <div class="grid grid-cols-2 gap-3 mb-4">
                             <div class="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
@@ -257,7 +245,7 @@
                                 <p class="text-xs font-semibold">Resep Bergizi</p>
                             </div>
                         </div>
-
+                        
                         <!-- Statistics -->
                         <div class="flex justify-center gap-4 text-center text-xs">
                             <div class="bg-white bg-opacity-20 rounded-lg px-3 py-2">
@@ -274,7 +262,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <!-- Call to Action -->
                     <div class="mt-6 relative z-10">
                         <div class="bg-white bg-opacity-20 rounded-full px-6 py-2 backdrop-blur-sm border border-white border-opacity-30">
@@ -286,7 +274,7 @@
 
             <!-- Halaman 2: Kata Pengantar -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content mobile-optimized content-texture">
+                <div class="page-content mobile-optimized">
                     <div class="text-2xl mb-2">🤗</div>
                     <h2 class="text-xl font-bold accent-blue mb-2">Selamat Datang, Ibu Hebat!</h2>
                     <div class="professional-card narrative-text mb-2">
@@ -311,7 +299,7 @@
 
             <!-- BAB 1: KESEHATAN KELUARGA -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content primary-gradient content-texture">
+                <div class="page-content primary-gradient">
                     <div class="text-4xl mb-3">👨‍👩‍👧‍👦</div>
                     <h2 class="text-2xl font-bold text-white mb-2">BAB 1</h2>
                     <h1 class="text-3xl font-bold text-white mb-3">Kesehatan Keluarga</h1>
@@ -342,7 +330,7 @@
 
             <!-- Halaman 4: Gizi Balita -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content mobile-optimized paper-texture">
+                <div class="page-content mobile-optimized">
                     <div class="text-2xl mb-1">👶</div>
                     <h3 class="text-lg font-bold accent-blue mb-1">Gizi Balita (0-5 tahun)</h3>
 
@@ -380,7 +368,7 @@
 
             <!-- Halaman 5: Gizi Anak Sekolah -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content paper-texture">
+                <div class="page-content">
                     <div class="text-3xl mb-2">🎒</div>
                     <h3 class="text-xl font-bold accent-blue mb-2">Gizi Anak Sekolah (6-12 tahun)</h3>
 
@@ -428,7 +416,7 @@
 
             <!-- Halaman 6: Gizi Ibu -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content paper-texture">
+                <div class="page-content">
                     <div class="text-4xl mb-3">👩</div>
                     <h3 class="text-2xl font-bold accent-purple mb-3">Gizi Ibu: Pilar Keluarga Sehat</h3>
 
@@ -472,7 +460,7 @@
 
             <!-- Halaman 7: Aktivitas Fisik Keluarga -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content paper-texture">
+                <div class="page-content">
                     <div class="text-4xl mb-3">🏃‍♀️</div>
                     <h3 class="text-2xl font-bold accent-green mb-3">Aktif Bergerak Bersama Keluarga</h3>
 
@@ -520,7 +508,7 @@
 
             <!-- BAB 2: GIZI SEIMBANG DAN AMAN -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content success-gradient content-texture">
+                <div class="page-content success-gradient">
                     <div class="text-4xl mb-3">🥗</div>
                     <h2 class="text-2xl font-bold text-white mb-2">BAB 2</h2>
                     <h1 class="text-3xl font-bold text-white mb-3">Gizi Seimbang & Aman</h1>
@@ -551,7 +539,7 @@
 
             <!-- Halaman 9: Konsep Isi Piringku -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content paper-texture">
+                <div class="page-content">
                     <div class="text-4xl mb-3">🍽️</div>
                     <h3 class="text-2xl font-bold accent-green mb-3">Konsep "Isi Piringku"</h3>
 
@@ -608,7 +596,7 @@
 
             <!-- Halaman 10: Pentingnya Sarapan -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content paper-texture">
+                <div class="page-content">
                     <div class="text-5xl mb-3">🌅</div>
                     <h3 class="text-2xl font-bold accent-orange mb-3">Sarapan: Bahan Bakar Harian</h3>
 
@@ -647,7 +635,7 @@
 
             <!-- Halaman 11: Air Minum -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content primary-gradient content-texture">
+                <div class="page-content primary-gradient">
                     <div class="text-5xl mb-3">💧</div>
                     <h3 class="text-2xl font-bold text-white mb-3">Air: Sumber Kehidupan</h3>
 
@@ -698,7 +686,7 @@
 
             <!-- Halaman 12: Batasi GGL -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content paper-texture">
+                <div class="page-content">
                     <div class="text-4xl mb-3">⚠️</div>
                     <h3 class="text-2xl font-bold accent-red mb-3">Waspadai Trio GGL</h3>
                     <p class="text-lg font-semibold accent-red mb-3">(Gula, Garam, Lemak Berlebih)</p>
@@ -746,7 +734,7 @@
 
             <!-- Halaman 13: Camilan Sehat -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content paper-texture">
+                <div class="page-content">
                     <div class="text-4xl mb-3">🍇</div>
                     <h3 class="text-2xl font-bold accent-green mb-3">Camilan Sehat & Cerdas</h3>
 
@@ -788,7 +776,7 @@
 
             <!-- BAB 3: KEAMANAN PANGAN -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content warning-gradient content-texture">
+                <div class="page-content warning-gradient">
                     <div class="text-4xl mb-3">🛡️</div>
                     <h2 class="text-2xl font-bold text-white mb-2">BAB 3</h2>
                     <h1 class="text-3xl font-bold text-white mb-3">Keamanan Pangan</h1>
@@ -823,7 +811,7 @@
 
             <!-- Halaman 15: Kunci 1 - Kebersihan -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content paper-texture">
+                <div class="page-content">
                     <div class="text-4xl mb-3">🧼</div>
                     <h3 class="text-2xl font-bold accent-blue mb-3">Kunci 1: Jaga Kebersihan</h3>
 
@@ -875,7 +863,7 @@
 
             <!-- Halaman 16: Kunci 2-5 Singkat -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content paper-texture">
+                <div class="page-content">
                     <div class="text-4xl mb-3">🔐</div>
                     <h3 class="text-2xl font-bold accent-orange mb-3">4 Kunci Keamanan Lainnya</h3>
 
@@ -909,7 +897,7 @@
 
             <!-- BAB 4: RESEP PRAKTIS DAN BERGIZI -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content secondary-gradient content-texture">
+                <div class="page-content secondary-gradient">
                     <div class="text-4xl mb-3">👩‍🍳</div>
                     <h2 class="text-2xl font-bold text-white mb-2">BAB 4</h2>
                     <h1 class="text-3xl font-bold text-white mb-3">Resep Praktis & Bergizi</h1>
@@ -940,7 +928,7 @@
 
             <!-- Resep 1: Sayur Bening Bayam -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content paper-texture">
+                <div class="page-content">
                     <div class="text-4xl mb-3">🥬</div>
                     <h3 class="text-2xl font-bold accent-green mb-2">Sayur Bening Bayam Jagung</h3>
                     <p class="text-sm text-gray-500 mb-3">⏱️ 15 menit | 👨‍👩‍👧‍👦 4 porsi | 💰 Ekonomis</p>
@@ -977,7 +965,7 @@
 
             <!-- Resep 2: Bola Tahu Sayur -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content paper-texture">
+                <div class="page-content">
                     <div class="text-4xl mb-3">🧆</div>
                     <h3 class="text-2xl font-bold accent-orange mb-2">Bola-bola Tahu Sayuran</h3>
                     <p class="text-sm text-gray-500 mb-3">⏱️ 25 menit | 👨‍👩‍👧‍👦 4 porsi | 👶 Favorit anak</p>
@@ -1016,7 +1004,7 @@
 
             <!-- Resep 3: Jus Sehat Trio -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content paper-texture">
+                <div class="page-content">
                     <div class="text-4xl mb-3">🥤</div>
                     <h3 class="text-2xl font-bold accent-red mb-2">Jus Sayuran Trio Sehat</h3>
                     <p class="text-sm text-gray-500 mb-3">⏱️ 10 menit | 🥛 2 gelas | 🌈 Kaya vitamin & mineral</p>
@@ -1062,7 +1050,7 @@
 
             <!-- Tips Belanja -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content paper-texture">
+                <div class="page-content">
                     <div class="text-4xl mb-3">🛒</div>
                     <h3 class="text-2xl font-bold accent-purple mb-3">Strategi Belanja Cerdas</h3>
 
@@ -1110,7 +1098,7 @@
 
             <!-- Tips Mengatasi GTM -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content paper-texture">
+                <div class="page-content">
                     <div class="text-4xl mb-3">😤</div>
                     <h3 class="text-2xl font-bold accent-red mb-3">Mengatasi "Gerakan Tutup Mulut" (GTM)</h3>
 
@@ -1150,7 +1138,7 @@
 
             <!-- Pantau Tumbuh Kembang -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content paper-texture">
+                <div class="page-content">
                     <div class="text-4xl mb-3">📏</div>
                     <h3 class="text-2xl font-bold accent-blue mb-3">Pantau Tumbuh Kembang Anak</h3>
 
@@ -1198,7 +1186,7 @@
 
             <!-- Halaman Penutup -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content primary-gradient text-white content-texture">
+                <div class="page-content primary-gradient text-white">
                     <div class="text-4xl mb-3">💝</div>
                     <h2 class="text-2xl font-bold mb-3">Terima Kasih, Ibu Hebat!</h2>
 
@@ -1243,7 +1231,7 @@
 
         </div>
 
-
+        
 
         <!-- Page Counter -->
         <div class="absolute top-4 right-4 bg-white bg-opacity-90 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-semibold shadow-sm">
