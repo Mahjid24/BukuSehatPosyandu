@@ -12,23 +12,12 @@ let currentPage = 0;
 // Update total pages
 totalPages.textContent = numPages;
 
-// Create navigation dots
-for (let i = 0; i < numPages; i++) {
-    const dot = document.createElement('div');
-    dot.classList.add('dot', 'w-2', 'h-2', 'bg-gray-400', 'rounded-full', 'cursor-pointer');
-    dot.addEventListener('click', () => goToPage(i));
-    navDotsContainer.appendChild(dot);
-}
-const dots = navDotsContainer.querySelectorAll('.dot');
+// Navigation dots removed for cleaner interface
+const dots = [];
 
 function updateNavControls(pageNumber) {
     currentPage = pageNumber;
     
-    // Update dots
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentPage);
-    });
-
     // Update progress bar
     const progressPercentage = ((currentPage + 1) / numPages) * 100;
     progressBar.style.width = progressPercentage + '%';
@@ -205,22 +194,9 @@ pages.forEach(page => {
     lazyLoadObserver.observe(page);
 });
 
-// Accessibility improvements
-dots.forEach((dot, index) => {
-    dot.setAttribute('aria-label', `Pergi ke halaman ${index + 1}`);
-    dot.setAttribute('role', 'button');
-    dot.setAttribute('tabindex', index === currentPage ? '0' : '-1');
-});
-
-// Update ARIA labels
+// Update ARIA labels for accessibility
 function updateAriaLabels() {
     document.body.setAttribute('aria-label', `Halaman ${currentPage + 1} dari ${numPages}`);
-    
-    dots.forEach((dot, index) => {
-        dot.setAttribute('aria-label', `Pergi ke halaman ${index + 1}`);
-        dot.setAttribute('role', 'button');
-        dot.setAttribute('tabindex', index === currentPage ? '0' : '-1');
-    });
 }
 
 // Call updateAriaLabels when page changes
@@ -232,13 +208,3 @@ updateNavControls = function(pageNumber) {
 
 // Initialize accessibility
 updateAriaLabels();
-
-// Add focus management for keyboard navigation
-dots.forEach((dot, index) => {
-    dot.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            goToPage(index);
-        }
-    });
-});
