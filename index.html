@@ -11,7 +11,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background: #f8fafc;
+            background: transparent;
             min-height: 100vh;
             overflow: hidden;
             position: relative;
@@ -299,30 +299,49 @@
 
             <!-- BAB 1: KESEHATAN KELUARGA -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content primary-gradient">
-                    <div class="text-4xl mb-3">👨‍👩‍👧‍👦</div>
-                    <h2 class="text-2xl font-bold text-white mb-2">BAB 1</h2>
-                    <h1 class="text-3xl font-bold text-white mb-3">Kesehatan Keluarga</h1>
-                    <div class="professional-card bg-white bg-opacity-10 backdrop-blur-sm">
-                        <p class="text-white font-semibold mb-2">Panduan Gizi Sesuai Usia</p>
-                        <p class="text-white text-sm opacity-90">Setiap anggota keluarga memiliki kebutuhan gizi yang berbeda sesuai dengan tahap perkembangan dan aktivitas hariannya.</p>
+                <div class="page-content primary-gradient relative overflow-hidden">
+                    <!-- Decorative Background Pattern -->
+                    <div class="absolute inset-0 opacity-10">
+                        <div class="absolute top-0 left-0 w-32 h-32 bg-white rounded-full -translate-x-12 -translate-y-12"></div>
+                        <div class="absolute top-1/4 right-0 w-24 h-24 bg-white rounded-full translate-x-8"></div>
+                        <div class="absolute bottom-1/4 left-0 w-20 h-20 bg-white rounded-full -translate-x-6"></div>
+                        <div class="absolute bottom-0 right-0 w-28 h-28 bg-white rounded-full translate-x-10 translate-y-10"></div>
+                        <!-- Additional decorative elements -->
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 border-4 border-white rounded-full"></div>
+                        <div class="absolute top-1/3 right-1/4 w-16 h-16 bg-white transform rotate-45"></div>
+                        <div class="absolute bottom-1/3 left-1/4 w-12 h-12 bg-white transform rotate-12"></div>
                     </div>
-                    <div class="grid grid-cols-4 gap-2 mt-4">
-                        <div class="text-center text-white">
-                            <div class="text-lg">👶</div>
-                            <p class="text-xs opacity-90">Balita (0-5 tahun)</p>
+                    
+                    <!-- Content with higher z-index -->
+                    <div class="relative z-10">
+                        <div class="text-5xl mb-4 animate-pulse">👨‍👩‍👧‍👦</div>
+                        <div class="bg-white bg-opacity-15 backdrop-blur-sm rounded-2xl p-4 mb-4 shadow-2xl">
+                            <h2 class="text-2xl font-bold text-white mb-2 drop-shadow-lg">BAB 1</h2>
+                            <h1 class="text-3xl font-bold text-white mb-3 drop-shadow-lg">Kesehatan Keluarga</h1>
                         </div>
-                        <div class="text-center text-white">
-                            <div class="text-lg">🧒</div>
-                            <p class="text-xs opacity-90">Anak (6-12 tahun)</p>
+                        
+                        <div class="professional-card bg-white bg-opacity-15 backdrop-blur-sm border border-white border-opacity-30 shadow-2xl">
+                            <p class="text-white font-semibold mb-2 text-lg drop-shadow-sm">Panduan Gizi Sesuai Usia</p>
+                            <p class="text-white text-sm opacity-90 leading-relaxed">Setiap anggota keluarga memiliki kebutuhan gizi yang berbeda sesuai dengan tahap perkembangan dan aktivitas hariannya.</p>
                         </div>
-                        <div class="text-center text-white">
-                            <div class="text-lg">👩</div>
-                            <p class="text-xs opacity-90">Ibu Dewasa</p>
-                        </div>
-                        <div class="text-center text-white">
-                            <div class="text-lg">👴</div>
-                            <p class="text-xs opacity-90">Lansia (>60 tahun)</p>
+                        
+                        <div class="grid grid-cols-4 gap-2 mt-4">
+                            <div class="text-center text-white bg-white bg-opacity-15 backdrop-blur-sm rounded-lg p-3 shadow-lg">
+                                <div class="text-2xl mb-1">👶</div>
+                                <p class="text-xs opacity-90 font-semibold">Balita (0-5 tahun)</p>
+                            </div>
+                            <div class="text-center text-white bg-white bg-opacity-15 backdrop-blur-sm rounded-lg p-3 shadow-lg">
+                                <div class="text-2xl mb-1">🧒</div>
+                                <p class="text-xs opacity-90 font-semibold">Anak (6-12 tahun)</p>
+                            </div>
+                            <div class="text-center text-white bg-white bg-opacity-15 backdrop-blur-sm rounded-lg p-3 shadow-lg">
+                                <div class="text-2xl mb-1">👩</div>
+                                <p class="text-xs opacity-90 font-semibold">Ibu Dewasa</p>
+                            </div>
+                            <div class="text-center text-white bg-white bg-opacity-15 backdrop-blur-sm rounded-lg p-3 shadow-lg">
+                                <div class="text-2xl mb-1">👴</div>
+                                <p class="text-xs opacity-90 font-semibold">Lansia (>60 tahun)</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -508,30 +527,49 @@
 
             <!-- BAB 2: GIZI SEIMBANG DAN AMAN -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content success-gradient">
-                    <div class="text-4xl mb-3">🥗</div>
-                    <h2 class="text-2xl font-bold text-white mb-2">BAB 2</h2>
-                    <h1 class="text-3xl font-bold text-white mb-3">Gizi Seimbang & Aman</h1>
-                    <div class="professional-card bg-white bg-opacity-10 backdrop-blur-sm">
-                        <p class="text-white font-semibold mb-2">Fondasi Kesehatan Keluarga</p>
-                        <p class="text-white text-sm opacity-90">Gizi seimbang adalah kunci utama dalam membangun keluarga yang sehat, cerdas, dan produktif.</p>
+                <div class="page-content success-gradient relative overflow-hidden">
+                    <!-- Food Pattern Background -->
+                    <div class="absolute inset-0 opacity-10">
+                        <div class="absolute top-0 left-0 text-6xl transform -rotate-12 -translate-x-4 -translate-y-4">🥗</div>
+                        <div class="absolute top-1/4 right-0 text-4xl transform rotate-45 translate-x-4">🍎</div>
+                        <div class="absolute bottom-1/4 left-0 text-5xl transform -rotate-45 -translate-x-2">🥬</div>
+                        <div class="absolute bottom-0 right-0 text-4xl transform rotate-12 translate-x-2 translate-y-2">🐟</div>
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl">🍚</div>
+                        <!-- Geometric shapes -->
+                        <div class="absolute top-1/3 left-1/3 w-24 h-24 border-4 border-white rounded-full"></div>
+                        <div class="absolute bottom-1/3 right-1/3 w-16 h-16 bg-white transform rotate-45"></div>
                     </div>
-                    <div class="grid grid-cols-2 gap-2 mt-4">
-                        <div class="text-center text-white">
-                            <div class="text-2xl">🍚</div>
-                            <p class="text-xs opacity-90">Karbohidrat Kompleks</p>
+                    
+                    <!-- Content -->
+                    <div class="relative z-10">
+                        <div class="text-5xl mb-4 animate-bounce">🥗</div>
+                        <div class="bg-white bg-opacity-15 backdrop-blur-sm rounded-2xl p-4 mb-4 shadow-2xl">
+                            <h2 class="text-2xl font-bold text-white mb-2 drop-shadow-lg">BAB 2</h2>
+                            <h1 class="text-3xl font-bold text-white mb-3 drop-shadow-lg">Gizi Seimbang & Aman</h1>
                         </div>
-                        <div class="text-center text-white">
-                            <div class="text-2xl">🥬</div>
-                            <p class="text-xs opacity-90">Sayuran Beragam</p>
+                        
+                        <div class="professional-card bg-white bg-opacity-15 backdrop-blur-sm border border-white border-opacity-30 shadow-2xl">
+                            <p class="text-white font-semibold mb-2 text-lg drop-shadow-sm">Fondasi Kesehatan Keluarga</p>
+                            <p class="text-white text-sm opacity-90 leading-relaxed">Gizi seimbang adalah kunci utama dalam membangun keluarga yang sehat, cerdas, dan produktif.</p>
                         </div>
-                        <div class="text-center text-white">
-                            <div class="text-2xl">🐟</div>
-                            <p class="text-xs opacity-90">Protein Berkualitas</p>
-                        </div>
-                        <div class="text-center text-white">
-                            <div class="text-2xl">🍎</div>
-                            <p class="text-xs opacity-90">Buah-buahan Segar</p>
+                        
+                        <div class="grid grid-cols-2 gap-2 mt-4">
+                            <div class="text-center text-white bg-white bg-opacity-15 backdrop-blur-sm rounded-lg p-3 shadow-lg transform hover:scale-105 transition-transform">
+                                <div class="text-2xl mb-1">🍚</div>
+                                <p class="text-xs opacity-90 font-semibold">Karbohidrat Kompleks</p>
+                            </div>
+                            <div class="text-center text-white bg-white bg-opacity-15 backdrop-blur-sm rounded-lg p-3 shadow-lg transform hover:scale-105 transition-transform">
+                                <div class="text-2xl mb-1">🥬</div>
+                                <p class="text-xs opacity-90 font-semibold">Sayuran Beragam</p>
+                            </div>
+                            <div class="text-center text-white bg-white bg-opacity-15 backdrop-blur-sm rounded-lg p-3 shadow-lg transform hover:scale-105 transition-transform">
+                                <div class="text-2xl mb-1">🐟</div>
+                                <p class="text-xs opacity-90 font-semibold">Protein Berkualitas</p>
+                            </div>
+                            <div class="text-center text-white bg-white bg-opacity-15 backdrop-blur-sm rounded-lg p-3 shadow-lg transform hover:scale-105 transition-transform">
+                                <div class="text-2xl mb-1">🍎</div>
+                                <p class="text-xs opacity-90 font-semibold">Buah-buahan Segar</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -776,34 +814,54 @@
 
             <!-- BAB 3: KEAMANAN PANGAN -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content warning-gradient">
-                    <div class="text-4xl mb-3">🛡️</div>
-                    <h2 class="text-2xl font-bold text-white mb-2">BAB 3</h2>
-                    <h1 class="text-3xl font-bold text-white mb-3">Keamanan Pangan</h1>
-                    <div class="professional-card bg-white bg-opacity-10 backdrop-blur-sm">
-                        <p class="text-white font-semibold mb-2">5 Kunci Emas Keamanan Pangan</p>
-                        <p class="text-white text-sm opacity-90">Melindungi keluarga dari kontaminasi bakteri, virus, dan zat berbahaya melalui praktik penanganan makanan yang benar.</p>
+                <div class="page-content warning-gradient relative overflow-hidden">
+                    <!-- Safety Pattern Background -->
+                    <div class="absolute inset-0 opacity-10">
+                        <div class="absolute top-0 left-0 text-6xl transform rotate-12 -translate-x-4 -translate-y-4">🛡️</div>
+                        <div class="absolute top-1/4 right-0 text-4xl transform -rotate-12 translate-x-4">🧼</div>
+                        <div class="absolute bottom-1/4 left-0 text-5xl transform rotate-45 -translate-x-2">🔥</div>
+                        <div class="absolute bottom-0 right-0 text-4xl transform -rotate-45 translate-x-2 translate-y-2">🌡️</div>
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl">💧</div>
+                        <!-- Shield patterns -->
+                        <div class="absolute top-1/3 left-1/4 w-20 h-20 border-4 border-white transform rotate-12"></div>
+                        <div class="absolute bottom-1/3 right-1/4 w-16 h-16 border-4 border-white rounded-full"></div>
+                        <div class="absolute top-2/3 left-2/3 w-12 h-12 bg-white transform rotate-45"></div>
                     </div>
-                    <div class="grid grid-cols-5 gap-1 mt-4">
-                        <div class="text-center text-white">
-                            <div class="text-lg">🧼</div>
-                            <p class="text-xs opacity-90">Jaga Kebersihan</p>
+                    
+                    <!-- Content -->
+                    <div class="relative z-10">
+                        <div class="text-5xl mb-4 animate-pulse">🛡️</div>
+                        <div class="bg-white bg-opacity-15 backdrop-blur-sm rounded-2xl p-4 mb-4 shadow-2xl border border-white border-opacity-30">
+                            <h2 class="text-2xl font-bold text-white mb-2 drop-shadow-lg">BAB 3</h2>
+                            <h1 class="text-3xl font-bold text-white mb-3 drop-shadow-lg">Keamanan Pangan</h1>
                         </div>
-                        <div class="text-center text-white">
-                            <div class="text-lg">🔄</div>
-                            <p class="text-xs opacity-90">Pisahkan</p>
+                        
+                        <div class="professional-card bg-white bg-opacity-15 backdrop-blur-sm border border-white border-opacity-30 shadow-2xl">
+                            <p class="text-white font-semibold mb-2 text-lg drop-shadow-sm">5 Kunci Emas Keamanan Pangan</p>
+                            <p class="text-white text-sm opacity-90 leading-relaxed">Melindungi keluarga dari kontaminasi bakteri, virus, dan zat berbahaya melalui praktik penanganan makanan yang benar.</p>
                         </div>
-                        <div class="text-center text-white">
-                            <div class="text-lg">🔥</div>
-                            <p class="text-xs opacity-90">Masak Matang</p>
-                        </div>
-                        <div class="text-center text-white">
-                            <div class="text-lg">🌡️</div>
-                            <p class="text-xs opacity-90">Suhu Aman</p>
-                        </div>
-                        <div class="text-center text-white">
-                            <div class="text-lg">💧</div>
-                            <p class="text-xs opacity-90">Bahan Aman</p>
+                        
+                        <div class="grid grid-cols-5 gap-1 mt-4">
+                            <div class="text-center text-white bg-white bg-opacity-15 backdrop-blur-sm rounded-lg p-2 shadow-lg">
+                                <div class="text-lg mb-1">🧼</div>
+                                <p class="text-xs opacity-90 font-semibold">Jaga Kebersihan</p>
+                            </div>
+                            <div class="text-center text-white bg-white bg-opacity-15 backdrop-blur-sm rounded-lg p-2 shadow-lg">
+                                <div class="text-lg mb-1">🔄</div>
+                                <p class="text-xs opacity-90 font-semibold">Pisahkan</p>
+                            </div>
+                            <div class="text-center text-white bg-white bg-opacity-15 backdrop-blur-sm rounded-lg p-2 shadow-lg">
+                                <div class="text-lg mb-1">🔥</div>
+                                <p class="text-xs opacity-90 font-semibold">Masak Matang</p>
+                            </div>
+                            <div class="text-center text-white bg-white bg-opacity-15 backdrop-blur-sm rounded-lg p-2 shadow-lg">
+                                <div class="text-lg mb-1">🌡️</div>
+                                <p class="text-xs opacity-90 font-semibold">Suhu Aman</p>
+                            </div>
+                            <div class="text-center text-white bg-white bg-opacity-15 backdrop-blur-sm rounded-lg p-2 shadow-lg">
+                                <div class="text-lg mb-1">💧</div>
+                                <p class="text-xs opacity-90 font-semibold">Bahan Aman</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -897,30 +955,50 @@
 
             <!-- BAB 4: RESEP PRAKTIS DAN BERGIZI -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content secondary-gradient">
-                    <div class="text-4xl mb-3">👩‍🍳</div>
-                    <h2 class="text-2xl font-bold text-white mb-2">BAB 4</h2>
-                    <h1 class="text-3xl font-bold text-white mb-3">Resep Praktis & Bergizi</h1>
-                    <div class="professional-card bg-white bg-opacity-10 backdrop-blur-sm">
-                        <p class="text-white font-semibold mb-2">Kreasi Masakan Bergizi</p>
-                        <p class="text-white text-sm opacity-90">Kumpulan resep praktis, ekonomis, dan bergizi tinggi yang telah disesuaikan dengan selera keluarga Indonesia.</p>
+                <div class="page-content secondary-gradient relative overflow-hidden">
+                    <!-- Cooking Pattern Background -->
+                    <div class="absolute inset-0 opacity-10">
+                        <div class="absolute top-0 left-0 text-6xl transform -rotate-12 -translate-x-4 -translate-y-4">👩‍🍳</div>
+                        <div class="absolute top-1/4 right-0 text-4xl transform rotate-45 translate-x-4">🍲</div>
+                        <div class="absolute bottom-1/4 left-0 text-5xl transform -rotate-45 -translate-x-2">🥗</div>
+                        <div class="absolute bottom-0 right-0 text-4xl transform rotate-12 translate-x-2 translate-y-2">🍪</div>
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl">🥤</div>
+                        <!-- Kitchen utensils pattern -->
+                        <div class="absolute top-1/3 left-1/4 w-16 h-16 border-4 border-white rounded-full"></div>
+                        <div class="absolute bottom-1/3 right-1/4 w-20 h-20 border-4 border-white transform rotate-45"></div>
+                        <div class="absolute top-2/3 left-2/3 w-12 h-12 bg-white transform rotate-12"></div>
                     </div>
-                    <div class="grid grid-cols-4 gap-2 mt-4">
-                        <div class="text-center text-white">
-                            <div class="text-lg">🥗</div>
-                            <p class="text-xs opacity-90">Sayuran</p>
+                    
+                    <!-- Content -->
+                    <div class="relative z-10">
+                        <div class="text-5xl mb-4 animate-bounce">👩‍🍳</div>
+                        <div class="bg-white bg-opacity-15 backdrop-blur-sm rounded-2xl p-4 mb-4 shadow-2xl border border-white border-opacity-30">
+                            <h2 class="text-2xl font-bold text-white mb-2 drop-shadow-lg">BAB 4</h2>
+                            <h1 class="text-3xl font-bold text-white mb-3 drop-shadow-lg">Resep Praktis & Bergizi</h1>
                         </div>
-                        <div class="text-center text-white">
-                            <div class="text-lg">🍲</div>
-                            <p class="text-xs opacity-90">Lauk Pauk</p>
+                        
+                        <div class="professional-card bg-white bg-opacity-15 backdrop-blur-sm border border-white border-opacity-30 shadow-2xl">
+                            <p class="text-white font-semibold mb-2 text-lg drop-shadow-sm">Kreasi Masakan Bergizi</p>
+                            <p class="text-white text-sm opacity-90 leading-relaxed">Kumpulan resep praktis, ekonomis, dan bergizi tinggi yang telah disesuaikan dengan selera keluarga Indonesia.</p>
                         </div>
-                        <div class="text-center text-white">
-                            <div class="text-lg">🥤</div>
-                            <p class="text-xs opacity-90">Minuman</p>
-                        </div>
-                        <div class="text-center text-white">
-                            <div class="text-lg">🍪</div>
-                            <p class="text-xs opacity-90">Camilan</p>
+                        
+                        <div class="grid grid-cols-4 gap-2 mt-4">
+                            <div class="text-center text-white bg-white bg-opacity-15 backdrop-blur-sm rounded-lg p-3 shadow-lg transform hover:scale-105 transition-transform">
+                                <div class="text-lg mb-1">🥗</div>
+                                <p class="text-xs opacity-90 font-semibold">Sayuran</p>
+                            </div>
+                            <div class="text-center text-white bg-white bg-opacity-15 backdrop-blur-sm rounded-lg p-3 shadow-lg transform hover:scale-105 transition-transform">
+                                <div class="text-lg mb-1">🍲</div>
+                                <p class="text-xs opacity-90 font-semibold">Lauk Pauk</p>
+                            </div>
+                            <div class="text-center text-white bg-white bg-opacity-15 backdrop-blur-sm rounded-lg p-3 shadow-lg transform hover:scale-105 transition-transform">
+                                <div class="text-lg mb-1">🥤</div>
+                                <p class="text-xs opacity-90 font-semibold">Minuman</p>
+                            </div>
+                            <div class="text-center text-white bg-white bg-opacity-15 backdrop-blur-sm rounded-lg p-3 shadow-lg transform hover:scale-105 transition-transform">
+                                <div class="text-lg mb-1">🍪</div>
+                                <p class="text-xs opacity-90 font-semibold">Camilan</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1186,44 +1264,65 @@
 
             <!-- Halaman Penutup -->
             <div class="page w-full h-full flex-shrink-0 snap-center">
-                <div class="page-content primary-gradient text-white">
-                    <div class="text-4xl mb-3">💝</div>
-                    <h2 class="text-2xl font-bold mb-3">Terima Kasih, Ibu Hebat!</h2>
-
-                    <div class="professional-card bg-white bg-opacity-10 backdrop-blur-sm mb-4 narrative-text">
-                        <p class="text-white leading-relaxed">Perjalanan menyajikan makanan sehat untuk keluarga adalah wujud kasih sayang yang tak ternilai. Setiap langkah kecil yang Ibu lakukan hari ini adalah investasi besar untuk masa depan generasi yang lebih sehat, cerdas, dan bahagia.</p>
+                <div class="page-content primary-gradient text-white relative overflow-hidden">
+                    <!-- Celebration Pattern Background -->
+                    <div class="absolute inset-0 opacity-10">
+                        <div class="absolute top-0 left-0 text-6xl transform rotate-12 -translate-x-4 -translate-y-4">💝</div>
+                        <div class="absolute top-1/4 right-0 text-4xl transform -rotate-12 translate-x-4">🌟</div>
+                        <div class="absolute bottom-1/4 left-0 text-5xl transform rotate-45 -translate-x-2">❤️</div>
+                        <div class="absolute bottom-0 right-0 text-4xl transform -rotate-45 translate-x-2 translate-y-2">👨‍👩‍👧‍👦</div>
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl">💪</div>
+                        <!-- Celebration elements -->
+                        <div class="absolute top-1/3 left-1/4 w-20 h-20 border-4 border-white rounded-full"></div>
+                        <div class="absolute bottom-1/3 right-1/4 w-16 h-16 bg-white transform rotate-45"></div>
+                        <div class="absolute top-2/3 left-2/3 w-12 h-12 border-4 border-white transform rotate-12"></div>
+                        <!-- Sparkle effects -->
+                        <div class="absolute top-1/5 left-1/5 w-8 h-8 bg-white rounded-full animate-ping"></div>
+                        <div class="absolute bottom-1/5 right-1/5 w-6 h-6 bg-white rounded-full animate-pulse"></div>
                     </div>
+                    
+                    <!-- Content -->
+                    <div class="relative z-10">
+                        <div class="text-5xl mb-4 animate-bounce">💝</div>
+                        <div class="bg-white bg-opacity-15 backdrop-blur-sm rounded-2xl p-4 mb-4 shadow-2xl border border-white border-opacity-30">
+                            <h2 class="text-2xl font-bold mb-3 drop-shadow-lg">Terima Kasih, Ibu Hebat!</h2>
+                        </div>
 
-                    <div class="grid grid-cols-2 gap-3 mb-4">
-                        <div class="professional-card bg-white bg-opacity-10 backdrop-blur-sm">
-                            <div class="text-2xl mb-1">🌟</div>
-                            <p class="text-sm font-semibold">Mulai dari yang sederhana</p>
+                        <div class="professional-card bg-white bg-opacity-15 backdrop-blur-sm mb-4 narrative-text border border-white border-opacity-30 shadow-2xl">
+                            <p class="text-white leading-relaxed text-sm">Perjalanan menyajikan makanan sehat untuk keluarga adalah wujud kasih sayang yang tak ternilai. Setiap langkah kecil yang Ibu lakukan hari ini adalah investasi besar untuk masa depan generasi yang lebih sehat, cerdas, dan bahagia.</p>
                         </div>
-                        <div class="professional-card bg-white bg-opacity-10 backdrop-blur-sm">
-                            <div class="text-2xl mb-1">💪</div>
-                            <p class="text-sm font-semibold">Konsistensi adalah kunci</p>
-                        </div>
-                        <div class="professional-card bg-white bg-opacity-10 backdrop-blur-sm">
-                            <div class="text-2xl mb-1">❤️</div>
-                            <p class="text-sm font-semibold">Buat dengan penuh cinta</p>
-                        </div>
-                        <div class="professional-card bg-white bg-opacity-10 backdrop-blur-sm">
-                            <div class="text-2xl mb-1">👨‍👩‍👧‍👦</div>
-                            <p class="text-sm font-semibold">Libatkan seluruh keluarga</p>
-                        </div>
-                    </div>
 
-                    <div class="professional-card bg-white bg-opacity-10 backdrop-blur-sm">
-                        <p class="text-white text-sm font-semibold">✨ Ibu adalah pahlawan sejati kesehatan keluarga Indonesia ✨</p>
-                    </div>
-
-                    <!-- Logo Section at Bottom -->
-                    <div class="flex justify-center gap-4 mt-6">
-                        <div class="logo-placeholder">
-                            <span class="text-xs">KKN</span>
+                        <div class="grid grid-cols-2 gap-3 mb-4">
+                            <div class="professional-card bg-white bg-opacity-15 backdrop-blur-sm shadow-lg border border-white border-opacity-30">
+                                <div class="text-2xl mb-1">🌟</div>
+                                <p class="text-sm font-semibold">Mulai dari yang sederhana</p>
+                            </div>
+                            <div class="professional-card bg-white bg-opacity-15 backdrop-blur-sm shadow-lg border border-white border-opacity-30">
+                                <div class="text-2xl mb-1">💪</div>
+                                <p class="text-sm font-semibold">Konsistensi adalah kunci</p>
+                            </div>
+                            <div class="professional-card bg-white bg-opacity-15 backdrop-blur-sm shadow-lg border border-white border-opacity-30">
+                                <div class="text-2xl mb-1">❤️</div>
+                                <p class="text-sm font-semibold">Buat dengan penuh cinta</p>
+                            </div>
+                            <div class="professional-card bg-white bg-opacity-15 backdrop-blur-sm shadow-lg border border-white border-opacity-30">
+                                <div class="text-2xl mb-1">👨‍👩‍👧‍👦</div>
+                                <p class="text-sm font-semibold">Libatkan seluruh keluarga</p>
+                            </div>
                         </div>
-                        <div class="logo-placeholder">
-                            <span class="text-xs">UNIV</span>
+
+                        <div class="professional-card bg-white bg-opacity-15 backdrop-blur-sm shadow-2xl border border-white border-opacity-30">
+                            <p class="text-white text-sm font-semibold">✨ Ibu adalah pahlawan sejati kesehatan keluarga Indonesia ✨</p>
+                        </div>
+
+                        <!-- Logo Section at Bottom -->
+                        <div class="flex justify-center gap-4 mt-6">
+                            <div class="logo-placeholder shadow-2xl">
+                                <span class="text-xs">KKN</span>
+                            </div>
+                            <div class="logo-placeholder shadow-2xl">
+                                <span class="text-xs">UNIV</span>
+                            </div>
                         </div>
                     </div>
                 </div>
